@@ -1,0 +1,202 @@
+/*
+The styles for Admin Dashboard web design
+Author: Nikos-Nikitas
+Github: https://github.com/nikosnikitas
+*/
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: content-box;   
+}
+
+.container {
+    font-family: sans-serif;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+        'side nav nav' 
+        'side main main'
+        'side main main' ;
+}
+
+.my-navbar {
+    padding: 12px;
+    grid-area: nav;
+    grid-column-start: 2;
+    grid-column-end: span -1;
+    gap: 12px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: min-content auto max-content;
+    grid-template-areas: 
+        'search-btn search-input notify avatar user-name b1 b2 b3'
+        'avatar-down down';
+
+    width: 100%;
+    background-color: #f6f6f6;
+}
+
+#search-btn {
+    grid-area: search-btn;
+    grid-column: 1 / 2;
+    grid-row: 1 / 1;
+}
+
+#search-input {
+    grid-area: search-input;
+    grid-column: 2 / 3;
+    grid-row: 1 / 1;
+}
+
+.notify {
+    grid-area: notify;
+    grid-column: 3 / 4;
+    grid-row: 1 / 1;
+}
+
+.avatar {
+    grid-area: avatar;
+    grid-column: 4 / 5;
+    grid-row: 1 / 1;
+}
+
+#user-name {
+    grid-area: user-name;
+    grid-column: 5 / 6;
+    grid-row: 1 / 1;
+}
+
+#b1 {
+    grid-area: b1;
+    grid-column: 6 / 7;
+    grid-row: 1 / 1;
+}
+
+#b2 {
+    grid-area: b2;
+    grid-column: 7 / 8;
+    grid-row: 1 / 1;
+}
+
+#b3 {
+    grid-area: b3;
+    grid-column: 8 / 9;
+    grid-row: 1 / 1;
+}
+
+#avatar-down {
+    grid-area: avatar-down;
+    grid-column: 3 / 4;
+    grid-row: 2 / 2;
+}
+
+.down {
+    grid-area: down;
+    grid-column: 4 / 5;
+    grid-row: 2 / 2;
+}
+
+.my-navbar * {
+    font-weight: bold;
+    font-size: large;
+}
+
+#search-input {
+    border: solid gray 1px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+button {cursor: pointer; padding: 4px;}
+
+button:not(#notify-btn) {
+    color:#f6f6f6;
+    background-color: cornflowerblue;
+    border: solid cornflowerblue 1px;
+    border-radius: 25px;
+    text-align: center;
+}
+button:hover:not(#notify-btn) {filter: opacity(55%);}
+
+.sidenav {
+    display: grid;
+    grid-area: side;
+    grid-row-start: span 3;
+    gap:0;
+    background-color: cornflowerblue;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    font-size: x-large;
+}
+
+#logo, #sidenav-title {
+    color:#f6f6f6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidenav-item {
+    gap:0;
+    list-style-type: none;
+    text-align: center;
+}
+
+.sidenav-item a {
+    gap:0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidenav-item a {
+    color:#f6f6f6;
+}
+
+.sidenav-item a:hover:not(#logo, #sidenav-title) {
+    display: block;
+    background-color:#f6f6f6;
+    color: cornflowerblue;
+    font-size: xx-large;
+}
+
+.tasks {
+    grid-area: main;
+    grid-row: 2 / span 2;
+    grid-column: 2 / span 2;
+    gap: 70px;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-areas: 
+    '. .'
+    'row1 row2'
+    'row1 row2'
+    'row1 row2';
+    overscroll-behavior: contain contain;
+}
+
+.row1 {
+    grid-area: row1;
+    display: grid;
+    gap: 12px;
+}
+
+.row2 {
+    grid-area: row2;
+    display: grid;
+    gap: 12px;
+}
+
+.item {
+    background-color: #f6f6f6;
+    color:#000;
+    border-left: chocolate 10px solid;
+    border-radius: 12px;
+    width: 250px;
+    height: 125px;
+    text-align: center;
+}
+
+.item:not(#scrollable-project) {overflow-y: hidden;}
+
+#scrollable-project {overflow-y: scroll;}
